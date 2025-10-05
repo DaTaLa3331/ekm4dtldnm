@@ -1,0 +1,19 @@
+def calculate(expression):
+    # Ensure input is at most 4 characters
+    if len(expression) > 4:
+        return "Input too long. Max 4 characters."
+
+    # Check for valid characters (digits and operators)
+    allowed = set("0123456789+-*/")
+    if not set(expression).issubset(allowed):
+        return "Invalid characters found."
+
+    try:
+        result = eval(expression)
+        return result
+    except Exception:
+        return "Invalid expression."
+
+if __name__ == "__main__":
+    expr = input("Enter expression (max 4 chars, e.g., 2+3): ")
+    print("Result:", calculate(expr))
